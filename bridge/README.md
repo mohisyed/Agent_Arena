@@ -1,5 +1,5 @@
-# bridge
+# Bridge
 
-Node.js + Mineflayer service that connects a bot to the Minecraft server and exposes its actions over a local HTTP API.
+Node.js + Mineflayer service that connects a bot to the Minecraft server and exposes actions over HTTP.
 
-Coming in P0-3 through P0-5.
+See `docs/bridge.md` for full usage notes.

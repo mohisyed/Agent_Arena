@@ -1,0 +1,34 @@
+{
+  "name": "bridge",
+  "version": "1.0.0",
+  "description": "Node.js + Mineflayer service that connects a bot to the Minecraft server and exposes its actions over a local HTTP API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tsc --noEmit",
+    "start": "ts-node src/index.ts",
+    "test": "jest --testPathIgnorePatterns=integration",
+    "test:unit": "jest --testPathIgnorePatterns=integration",
+    "test:live": "jest --testPathPatterns=integration --testTimeout=30000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mineflayer": "^4.37.1",
+    "mineflayer-pathfinder": "^2.4.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.9.3",
+    "@types/supertest": "^7.2.0",
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

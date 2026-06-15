@@ -7,11 +7,24 @@ services:
       EULA: "TRUE"
       MODE: creative
       ONLINE_MODE: "FALSE"
+      VERSION: "1.21.11"
     volumes:
       - mc_data:/data
-    tty: true                              # allocate a pseudo-TTY (keeps server console usable)              
-    stdin_open: true                       # keep stdin open for server console commands                      
-    restart: unless-stopped                # auto-restart on crash, but not after manual stop       
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+
+  bridge:
+    build: ./bridge                          # builds from bridge/Dockerfile
+    ports:
+      - "3001:3001"                          # expose bridge HTTP API to host
+    environment:
+      MC_HOST: mc                            # "mc" resolves via Compose's internal DNS
+      MC_PORT: "25565"
+      HTTP_PORT: "3001"
+    depends_on:                              # starts mc first, but does NOT wait for it to be ready
+      - mc
+    restart: unless-stopped                  # auto-restart so the bridge retries if mc isn't ready yet
 
 volumes:
   mc_data:
